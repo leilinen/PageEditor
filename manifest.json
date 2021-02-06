@@ -1,0 +1,31 @@
+{
+    "mainfest_version": 2,
+    "name": "page editor",
+    "version": "1.0.0",
+    "description": "页面编辑器",
+    "icons": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "content_scripts": 
+	[
+		{
+			"matches": ["<all_urls>"],
+			"js": ["js/jquery-3.5.1.min.js", "js/content-script.js"],
+			"css": ["css/custom.css"],
+			"run_at": "document_start"
+		},
+		{
+			"matches": ["*://*/*.png", "*://*/*.jpg", "*://*/*.gif", "*://*/*.bmp"],
+			"js": ["js/show-image-content-size.js"]
+		}
+	],
+    "browser_action": {
+        "default_icon": "img/icon16.png",
+        "default_title": "页面编辑器",
+        "defalut_popup": "html/popup.html"
+    },
+    "default_locale": "zh_CN"
+
+}
